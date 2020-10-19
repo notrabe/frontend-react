@@ -17,12 +17,16 @@ function Login() {
   return (
       <div className="container-logo">
         <img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTx-1_0MUCoeqLDVJog4Gbfbh1vyFAtldTT4A&usqp=CAU" alt="" />
-      <h1>Log In Here</h1>
+
+      <h1>Log In Here</h1><br/>
     <form className="forms-container" onSubmit={handleSubmit(onSubmit)} >
+              <button className="btn-sign-up">Click here to Sign Up Instead</button>
+
       <input  type="username" placeholder="Username" name="username" ref={register({required: "USERNAME IS REQUIRED", minLength: {value: 8, message:"TOO SHORT" }})} />
       {errors.username && <p>Username is invalid</p>}
 
-      <input type="text" placeholder="Email" name="email" ref={register}/>
+      <input type="text" placeholder="Email" name="email" ref={register({required: "EMAIL IS REQUIRED", minLength: {value: 4, message: "TOO SHORT" }})}/>
+      {errors.email && <p>{errors.email.message}</p>}
 
       <input type="password" placeholder="Password" name="password" ref={register({required: "PASSWORD IS REQUIRED", minLength: {value: 8, message:"TOO SHORT" }})}/>
       {errors.password && <p>{errors.password.message}</p>}

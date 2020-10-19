@@ -75,7 +75,6 @@ select {
   background: rgb(214, 156, 69);
   color: #6c6c6c;
   border: 3px solid darkgrey;
-
 }
 
 .container-logo {
@@ -85,5 +84,17 @@ select {
   top: 0%;
   bottom: 30.17%;
   background: #ffffff;
+}
 
+.btn-sign-up {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgb(214, 156, 69);
+  color: #6c6c6c;
+  border: 3px solid darkgrey;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }

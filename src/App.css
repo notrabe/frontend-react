@@ -10,8 +10,35 @@
 body {
   background-color: rgb(172, 172, 172);
 }
+
 h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin: 1rem;
+  text-decoration: underline;
+}
+
+.logo {
+  width: 8rem;
+  height: 5rem;
+  background: rgb(232,142,53);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-links ul {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-links ul li {
+  margin: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .container {
@@ -41,6 +68,7 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 10px;
+  background: rgb(232,142,53);
 }
 
 .input-btn {
@@ -49,4 +77,5 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 10px;
+  background: rgb(232,142,53);
 }

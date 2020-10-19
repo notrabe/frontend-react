@@ -1,0 +1,89 @@
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #F2F2F2;
+}
+
+
+h1 {
+  color: #6c6c6c;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: #6c6c6c;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.logo {
+  width: 10rem;
+  height: 7rem;
+  display: flex;
+  margin-left: 40%;
+  background-color: #F2F2F2;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+
+}
+
+.forms-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+input {
+  color: #6c6c6c;
+  background: rgb(214, 156, 69);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 0.3rem;
+  text-align: center;
+  cursor: pointer;
+  border: 3px solid darkgrey;
+}
+
+select {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgb(214, 156, 69);
+  color: #6c6c6c;
+  border: 3px solid darkgrey;
+
+}
+
+.container-logo {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0%;
+  bottom: 30.17%;
+  background: #ffffff;
+
+}

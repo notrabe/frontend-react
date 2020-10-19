@@ -8,6 +8,12 @@ export const TruckProvider = (props) => {
             name: '',
             cuisine: '',
             rating: '',
+            menu: [{
+                itemName: '',
+                price: '',
+                description: '',
+                rating: '',
+            }],
         }
     ])
 

@@ -8,10 +8,13 @@ const TruckList = () => {
     return (
         <div>
             {trucks.map(truck => (
-                <Truck  name = {truck.name} cuisine = {truck.cuisine}/>    
+                <Truck  name = {truck.name} cuisine = {truck.cuisine} menu={truck.menu}/>    
             ))}
         </div>
+        
     )
 }
+
+
 
 export default TruckList

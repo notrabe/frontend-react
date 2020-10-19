@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {TruckContext} from '../context/TruckContext'
+import AddMenuItem from './AddMenuItem'
 
 function AddTruck () {
 
@@ -37,6 +38,7 @@ function AddTruck () {
                 <button>Submit</button>
 
             </form>
+
         </div>
     );
 }

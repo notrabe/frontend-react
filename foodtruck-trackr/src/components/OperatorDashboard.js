@@ -4,6 +4,7 @@ import {TruckProvider} from '../context/TruckContext'
 import DinerDashboard from './DinerDashboard'
 import AddTruck from './AddTruck'
 import TruckList from './TruckList'
+import AddMenuItem from './AddMenuItem';
 
 function OperatorDashboard (){
     return (

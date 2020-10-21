@@ -1,9 +1,12 @@
 import React, { Component} from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios';
 
 
 
 class Signin extends Component {
+   
+    
     state = {
         username: '',
         password: '',
@@ -21,6 +24,8 @@ class Signin extends Component {
         axios.post ('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', this.state)
             .then(res => {
                 console.log(res)
+                localStorage.setItem('token', res.data.token)
+            
             })
             .catch (err => {
                 console.log(err)

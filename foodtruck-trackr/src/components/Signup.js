@@ -1,58 +1,73 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-export default function App() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-  const onError = (errors, e) => console.log(errors, e);
+const initialFormValues = {
+  username: "",
+  password: "",
+  role: "",
+}
 
- 
+function Signup() {
+  const [formData, setFormData] = useState(initialFormValues);
 
+  const onChange = (evt) => {
+    console.log(evt.target)
+    const {name, value} = evt.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    })
+}
 
-  axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register')
-        .then(res => {
-            handleSubmit = (event) => {
-                event.preventDefault(event)
-            }
-                console.log(res)
-            })
+  const handleSubmit = (evt) => {
+      const postData = formData;
+      evt.preventDefault();
+      axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register', postData)
+      .then(res => {
+        console.log(postData);
+        console.log(res)
+        setFormData(initialFormValues);
+      })
+      .catch(err => {
+        console.log(err, "oops teehee")
+      })
+  }
 
-            .catch(err => {
-                console.log(err, "oops teehee")
-            })
-
-
-  
   return (
-    <form className="signup-container" onSubmit={handleSubmit(onSubmit, onError)}>
-      <input className="input" type="text" placeholder="First Name" name="First Name" ref={register({required: true, max: 60, min: 3, maxLength: 60})} />
-      <input className="input" type="text" placeholder="Last Name" name="Last Name" ref={register({required: true, max: 60, min: 3, maxLength: 60})} />
-      <input className="input" type="email" placeholder="Email" name="Email" ref={register({required: true})} />
-      <input className="input" type="text" placeholder="Password" name="Password" ref={register({required: true})} />
+    <form className="signup-container" onSubmit={handleSubmit}>
+      <label>Username:{' '}
+        <input 
+            value={formData.username}
+            onChange={onChange}
+            name="username"
+            type="text"
+            className="input"
+        />
+      </label>
+      <label>Password:{' '}
+          <input 
+              value={formData.password}
+              onChange={onChange}
+              name="password"
+              type="text"
+              className="input"
+          />
+      </label>
+      <label>User Type:{' '}
+          <select onChange={onChange} value={formData.role} name="role">
+              <option value="">--Select an Option--</option>
+              <option value="1">Operator</option>
+              <option value="2">Diner</option>
+          </select>
+      </label>
 
-      <input className="input" type="submit" />
+      {/* <input className="input" type="text" placeholder="Username" name="username" ref={register({required: true, max: 60, min: 3, maxLength: 60})} />
+      <input className="input" type="email" placeholder="Email" name="email" ref={register({required: true})} />
+      <input className="input" type="text" placeholder="Password" name="password" ref={register({required: true})} /> */}
+      <button>Submit</button>
     </form>
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Signup;

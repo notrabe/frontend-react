@@ -22,7 +22,7 @@ function DDTruckList(){
     return(
         <div>
             {currentTrucks.map(truck => (
-                <AllTrucks  name = {truck.name} location = {truck.location} cuisine = {truck.cuisine}/>))}
+                <AllTrucks  name = {truck.name} location = {truck.city} cuisine = {truck.cuisine}/>))}
         </div>
     )
 }

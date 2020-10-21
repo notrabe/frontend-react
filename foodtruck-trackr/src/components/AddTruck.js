@@ -14,7 +14,7 @@ function AddTruck (props) {
     const [trucks, setTrucks] = useContext(TruckContext)
     const [name, setName] = useState('')
     const [cuisine, setCuisine] = useState('')
-    const [location, setLocation] = useState('')
+    const [city, setCity] = useState('')
     const [rating, setRating] = useState('')
     const [formValues, setFormValues] = useState(initialFormValues)
 
@@ -25,7 +25,7 @@ function AddTruck (props) {
         const postData = {
             name: name,
             cuisine: cuisine,
-            location: location,
+            city: city,
         }
         
         axiosWithAuth()
@@ -51,9 +51,9 @@ function AddTruck (props) {
         setCuisine(e.target.value)
     }
 
-    const updateLocation = (e) => {
+    const updateCity = (e) => {
         e.preventDefault()
-        setLocation(e.target.value)
+        setCity(e.target.value)
     }
 
     return(
@@ -68,10 +68,10 @@ function AddTruck (props) {
                 </label>
 
                 <label>Location:&nbsp;
-                    <input type = 'text' name= 'location' value = {location} onChange={updateLocation}/>    
+                    <input type = 'text' name= 'location' value = {city} onChange={updateCity}/>    
                 </label>
 
-                <button>Submit</button>
+                <button >Submit</button>
 
             </form>
 

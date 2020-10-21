@@ -22,10 +22,10 @@ function Signup() {
         setNewRole([e.target.id].e.target.value)
     }
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(state);
-        axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register', state)
+        console.log(e);
+        axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register', e)
         .then(res => {
                 console.log(res)
             })
@@ -44,19 +44,19 @@ function Signup() {
                     <label htmlFor="password">
                         Username<br/>
                         </label>
-                        <input name = 'username' type="text" id="username" value = {username} onChange={updateName} />
+                        <input className="input" name = 'username' type="text" id="username" value = {username} onChange={updateName} />
                 </div>
 
                 <div className="input-field">
                     <label htmlFor="password">
                         Password<br/>
                         </label>
-                        <input name="password" type="password" id="password" value = {password} onChange={updatePassword} />
+                        <input className="input" name="password" type="password" id="password" value = {password} onChange={updatePassword} />
                 </div>
 
                 <div>
                     <label> Role (Enter 1 for Operator or 2 for Diner): </label>
-                    <input name = 'role' type = 'text' id ='role' value = {role} onChange={updateRole}/>
+                    <input className="input" name = 'role' type = 'text' id ='role' value = {role} onChange={updateRole}/>
                 </div>
 
                 <div className="input-field">

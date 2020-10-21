@@ -16,10 +16,10 @@ function Signin()  {
     }
 
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(state);
-        axios.post ('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', state)
+        console.log(e);
+        axios.post ('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', e)
             .then(res => {
                 console.log(res)
             })

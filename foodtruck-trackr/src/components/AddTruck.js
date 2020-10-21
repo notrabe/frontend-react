@@ -1,17 +1,41 @@
 import React, {useState, useContext} from 'react';
 import {TruckContext} from '../context/TruckContext'
 import AddMenuItem from './AddMenuItem'
+import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-function AddTruck () {
+const initialFormValues = {
+    name: '',
+    cuisine:'',
+}
+
+function AddTruck (props) {
 
     const [trucks, setTrucks] = useContext(TruckContext)
     const [name, setName] = useState('')
     const [cuisine, setCuisine] = useState('')
+    const [location, setLocation] = useState('')
     const [rating, setRating] = useState('')
+    const [formValues, setFormValues] = useState(initialFormValues)
+
+    
 
     const postNewTruck = (e) => {
-        e.preventDefault()
-        setTrucks(prevTrucks => [...prevTrucks, {name: name, cuisine: cuisine}])
+        e.preventDefault();
+        const postData = {
+            name: name,
+            cuisine: cuisine
+        }
+        
+        axiosWithAuth()
+            .post(`/api/trucks`, postData)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
     }
 
     const updateName = (e) => {

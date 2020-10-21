@@ -44,19 +44,21 @@ function Signup() {
                     <label htmlFor="password">
                         Username<br/>
                         </label>
-                        <input className="input" name = 'username' type="text" id="username" value = {username} onChange={updateName} />
+                        <input className="input" name = 'username' type="text" id="username" value = {newUsername} onChange={updateName} />
                 </div>
 
                 <div className="input-field">
                     <label htmlFor="password">
                         Password<br/>
                         </label>
-                        <input className="input" name="password" type="password" id="password" value = {password} onChange={updatePassword} />
+                        <input className="input" name="password" type="password" id="password" value = {newPassword} onChange={updatePassword} />
                 </div>
 
                 <div>
-                    <label> Role (Enter 1 for Operator or 2 for Diner): </label>
-                    <input className="input" name = 'role' type = 'text' id ='role' value = {role} onChange={updateRole}/>
+                    <label htmlFor="role"> 
+                    Role (Enter 1 for Operator or 2 for Diner):<br/> 
+                    </label>
+                    <input className="input" name = 'role' type = 'text' id ='role' value = {newRole} onChange={updateRole}/>
                 </div>
 
                 <div className="input-field">

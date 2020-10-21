@@ -59,11 +59,11 @@ function AddTruck (props) {
     return(
         <div>
             <form onSubmit = {postNewTruck}>
-                <label> Truck Name:&nbsp;
+                <label> Truck Name:
                     <input type = 'text' name = 'truck-name' value = {name} onChange = {updateName}/>
                 </label>
 
-                <label> Cuisine Type:&nbsp; 
+                <label> Cuisine Type: 
                         <input type = 'text' name ='cuisine' value = {cuisine} onChange={updateCuisine}/>
                 </label>
 

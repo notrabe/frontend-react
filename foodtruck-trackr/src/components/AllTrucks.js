@@ -8,7 +8,7 @@ export default function AllTrucks ({name, location, cuisine}) {
     return(
         <div>
             <h3>{name}</h3>
-            <p>{location}, {cuisine}</p>
+            <p>{cuisine}, {location}</p>
 
         </div>
     )

@@ -32,10 +32,12 @@ function Signin()  {
         axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', postData)
         .then(res => {
                 console.log(res)
+                localStorage.setItem('token', res.data.token)
             })
 
             .catch(err => {
                 console.log(err, "oops teehee")
+                alert('invalid username or password')
             })
     }
 

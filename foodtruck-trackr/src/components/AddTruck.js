@@ -24,17 +24,20 @@ function AddTruck (props) {
         e.preventDefault();
         const postData = {
             name: name,
-            cuisine: cuisine
+            cuisine: cuisine,
+            location: location,
         }
         
         axiosWithAuth()
-            .post(`/api/trucks`, postData)
-            .then(res => {
-                console.log(res)
+        .post(`/api/trucks`, postData)
+        .then(res => {
+            console.log(res)
+            localStorage.getItem('token')
             })
             .catch(err => {
                 console.log(err)
             })
+        alert('Truck added successfully!')
 
     }
 

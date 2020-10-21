@@ -1,11 +1,4 @@
 
-import React, { Component, useState} from 'react'
-import { useHistory } from 'react-router-dom'
-import axios from 'axios';
-import './Signin.css';
-
-
-
 function Signin()  {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -69,4 +62,5 @@ function Signin()  {
 }
 
 
-export default Signin
+
+

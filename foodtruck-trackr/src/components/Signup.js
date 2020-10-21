@@ -12,7 +12,6 @@ function SignUp()  {
 
     const onChange = (evt) => {
         // console.log(evt.target)
-        
         const {name, value} = evt.target;
         setFormData({
           ...formData,

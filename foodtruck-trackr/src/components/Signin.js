@@ -1,27 +1,29 @@
-import React, { Component} from 'react'
+
+import React, { Component, useState} from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios';
+import './Signin.css';
 
 
 
-class Signin extends Component {
-   
-    
-    state = {
-        username: '',
-        password: '',
+function Signin()  {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const updateName = (e) => {
+        setUsername([e.target.id].value)
+
     }
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.id]: e.target.value
-        })
+    const updatePassword = (e) => {
+        setPassword([e.target.id].value)
     }
 
-    handleSubmit = (e) => {
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-        axios.post ('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', this.state)
+        console.log(e);
+        axios.post ('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', e)
             .then(res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.token)
@@ -30,29 +32,24 @@ class Signin extends Component {
             .catch (err => {
                 console.log(err)
             })
-
     }
 
-    render() {
-
-    const {username, password} = this.state
-
     return (
-        <div className="container">
-            <form onSubmit={this.handleSubmit} className="white">
-                <h2 className="grey-text">Sign In</h2>
+        <div className="signin-container">
+            <form onSubmit={handleSubmit} className="form-container">
+                <h2 className="title">Sign In</h2>
                 <div className="input-field">
                     <label htmlFor="password">
                         Username<br/>
                         </label>
-                        <input className="input" type="text" id="username" value = {username} onChange={this.handleChange} />
+                        <input className="input" type="text" id="username" value = {username} onChange={updateName} />
                 </div>
 
                 <div className="input-field">
                     <label htmlFor="password">
                         Password<br/>
                         </label>
-                        <input className="input" type="password" id="password" value = {password} onChange={this.handleChange} />
+                        <input className="input" type="password" id="password" value = {password} onChange={updatePassword} />
                 </div>
 
 
@@ -63,6 +60,6 @@ class Signin extends Component {
         </div>
     )
 }
-}
+
 
 export default Signin

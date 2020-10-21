@@ -1,40 +1,45 @@
 import React, {useState} from 'react';
-import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 const initialFormValues = {
-  username: "",
-  password: "",
-  role: "",
-}
-
-function Signup() {
-  const [formData, setFormData] = useState(initialFormValues);
-
-  const onChange = (evt) => {
-    console.log(evt.target)
-    const {name, value} = evt.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
-}
-
-  const handleSubmit = (evt) => {
-      const postData = formData;
-      evt.preventDefault();
-      axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register', postData)
-      .then(res => {
-        console.log(postData);
-        console.log(res)
-        setFormData(initialFormValues);
-      })
-      .catch(err => {
-        console.log(err, "oops teehee")
-      })
+    username: "",
+    password: "",
+    role: "",
   }
 
+function SignUp()  {
+    const [formData, setFormData] = useState(initialFormValues);
+
+    const onChange = (evt) => {
+        console.log(evt.target)
+        const {name, value} = evt.target;
+        setFormData({
+          ...formData,
+          [name]: value,
+        })
+    }
+  
+  
+  
+    const handleSubmit = (evt) => {
+        const postData = formData;
+        evt.preventDefault();
+        axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register', postData)
+        .then(res => {
+          console.log(postData);
+          console.log(res)
+          setFormData(initialFormValues);
+        })
+        .catch(err => {
+          console.log(err, "oops teehee")
+        })
+    }
+  
+
+  
   return (
+    <div className="signin-container">
+    <h1>Food Truck</h1>
     <form className="signup-container" onSubmit={handleSubmit}>
       <label>Username:{' '}
         <input 
@@ -62,12 +67,31 @@ function Signup() {
           </select>
       </label>
 
-      {/* <input className="input" type="text" placeholder="Username" name="username" ref={register({required: true, max: 60, min: 3, maxLength: 60})} />
-      <input className="input" type="email" placeholder="Email" name="email" ref={register({required: true})} />
-      <input className="input" type="text" placeholder="Password" name="password" ref={register({required: true})} /> */}
       <button>Submit</button>
     </form>
+</div>
   );
 }
 
-export default Signup;
+export default SignUp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

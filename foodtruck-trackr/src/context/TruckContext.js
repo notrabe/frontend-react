@@ -14,6 +14,7 @@ export const TruckProvider = (props) => {
                 description: '',
                 rating: '',
             }],
+            location: '',
         }
     ])
 

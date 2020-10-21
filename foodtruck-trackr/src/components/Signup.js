@@ -11,7 +11,7 @@ function SignUp()  {
     const [formData, setFormData] = useState(initialFormValues);
 
     const onChange = (evt) => {
-        console.log(evt.target)
+        // console.log(evt.target)
         const {name, value} = evt.target;
         setFormData({
           ...formData,

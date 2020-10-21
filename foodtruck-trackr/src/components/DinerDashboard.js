@@ -8,24 +8,7 @@ import DDTruckList from './DDTruckList'
 
 
 function DinerDashboard (){
-    // const [currentTrucks, setCurrentTrucks] = useState([])
-  
-    // useEffect(()=> {
-    //     axiosWithAuth()
-    //         .get(`/api/trucks`)
-    //         .then(res => {
-    //             console.log(res)
-    //             setCurrentTrucks(res.data)
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    //     },[])
 
-    //         console.log(currentTrucks)
-            
-    //         currentTrucks.map(truck => 
-    //             <AllTrucks name = {truck.name} location = {truck.location} cuisine = {truck.cuisine}/>)
     return (
         <div>
             <NavLink to='/home'>Home</NavLink>

@@ -7,36 +7,10 @@ export default function App() {
   const onSubmit = data => console.log(data);
   const onError = (errors, e) => console.log(errors, e);
 
+ 
 
-function Signup() {
-    const [newUsername, setNewUsername] = useState('')
-    const [newPassword, setNewPassword] = useState('')
-    const [newRole, setNewRole] = useState('')
 
-    const updateName = (e) => {
-        e.preventDefault()
-        setNewUsername(e.target.value)
-    } 
-
-    const updatePassword = (e) => {
-        e.preventDefault()
-        setNewPassword(e.target.value)
-    }
-
-    const updateRole = (e) => {
-        e.preventDefault()
-        setNewRole(e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-        const postData = {
-            username: newUsername,
-            password: newPassword,
-            role: newRole,
-        }
-        e.preventDefault();
-        console.log(e);
-        axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register', postData)
+  axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register')
         .then(res => {
             handleSubmit = (event) => {
                 event.preventDefault(event)

@@ -11,28 +11,34 @@ function Signin()  {
     const [password, setPassword] = useState('')
 
     const updateName = (e) => {
-        setUsername([e.target.id].value)
-
+        e.preventDefault()
+        setUsername(e.target.value)
     }
 
     const updatePassword = (e) => {
-        setPassword([e.target.id].value)
+        e.preventDefault()
+        setPassword(e.target.value)
     }
+
 
 
     const handleSubmit = (e) => {
+        const postData = {
+            username: username,
+            password: password,
+        }
         e.preventDefault();
-        console.log(e);
-        axios.post ('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', e)
-            .then(res => {
+        console.log(postData)
+        axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', postData)
+        .then(res => {
                 console.log(res)
-                localStorage.setItem('token', res.data.token)
-            
             })
-            .catch (err => {
-                console.log(err)
+
+            .catch(err => {
+                console.log(err, "oops teehee")
             })
     }
+
 
     return (
         <div className="signin-container">

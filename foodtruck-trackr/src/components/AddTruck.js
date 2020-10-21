@@ -48,15 +48,24 @@ function AddTruck (props) {
         setCuisine(e.target.value)
     }
 
+    const updateLocation = (e) => {
+        e.preventDefault()
+        setLocation(e.target.value)
+    }
+
     return(
         <div>
             <form onSubmit = {postNewTruck}>
-                <label> Truck Name:
+                <label> Truck Name:&nbsp;
                     <input type = 'text' name = 'truck-name' value = {name} onChange = {updateName}/>
                 </label>
 
-                <label> Cuisine Type: 
+                <label> Cuisine Type:&nbsp; 
                         <input type = 'text' name ='cuisine' value = {cuisine} onChange={updateCuisine}/>
+                </label>
+
+                <label>Location:&nbsp;
+                    <input type = 'text' name= 'location' value = {location} onChange={updateLocation}/>    
                 </label>
 
                 <button>Submit</button>

@@ -6,6 +6,7 @@ import Truck from './components/Truck'
 import Signin from './components/Signin'
 import Signup from './components/Signup'
 import './App.css';
+import PrivateRoute from './components/PrivateRoute'
 
 
 function App() {
@@ -29,13 +30,9 @@ function App() {
           <Route path='/signin' component={Signin}/>
           <Route path='/signup' component={Signup}/>
 
-          <Route path ='/operatordashboard'>
-            <OperatorDashboard/>
-          </Route>
+          <PrivateRoute exact path ='/operatordashboard' component = {OperatorDashboard}/>
 
-          <Route path ='/dinerdashboard'>
-            <DinerDashboard/>
-          </Route>
+          <PrivateRoute exact path ='/dinerdashboard' component = {DinerDashboard}/>
 
         </Switch>
 

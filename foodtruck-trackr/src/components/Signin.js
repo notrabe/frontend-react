@@ -1,6 +1,9 @@
-import React, {useState} from 'react'
+
+import React, { Component, useState} from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios';
 import './Signin.css';
+
 
 
 function Signin()  {
@@ -9,6 +12,7 @@ function Signin()  {
 
     const updateName = (e) => {
         setUsername([e.target.id].value)
+
     }
 
     const updatePassword = (e) => {
@@ -22,6 +26,8 @@ function Signin()  {
         axios.post ('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', e)
             .then(res => {
                 console.log(res)
+                localStorage.setItem('token', res.data.token)
+            
             })
             .catch (err => {
                 console.log(err)

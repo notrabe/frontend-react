@@ -1,74 +1,58 @@
-import React, { useState} from 'react'
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
+export default function App() {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
+  const onError = (errors, e) => console.log(errors, e);
+
+ 
 
 
-
-
-function Signup() {
-    const [newUsername, setNewUsername] = useState('')
-    const [newPassword, setNewPassword] = useState('')
-    const [newRole, setNewRole] = useState('')
-
-    const updateName = (e) => {
-        setNewUsername([e.target.id].e.target.value)
-    }
-
-    const updatePassword = (e) => {
-        setNewPassword([e.target.id].e.target.value)
-    }
-
-    const updateRole = (e) => {
-        setNewRole([e.target.id].e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(e);
-        axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register', e)
+  axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register')
         .then(res => {
+            handleSubmit = (event) => {
+                event.preventDefault(event)
+            }
                 console.log(res)
             })
 
             .catch(err => {
                 console.log(err, "oops teehee")
             })
-    }
 
-    return (
 
-        <div className="signup-container">
-            <h1>Food Truck</h1>
-            <form onSubmit={handleSubmit} className="form-container">
-                <h2 className="title">Sign Up</h2>
-                <div className="input-field">
-                    <label htmlFor="password">
-                        Username<br/>
-                        </label>
-                        <input className="input" name = 'username' type="text" id="username" value = {newUsername} onChange={updateName} />
-                </div>
+  
+  return (
+    <form className="signup-container" onSubmit={handleSubmit(onSubmit, onError)}>
+      <input className="input" type="text" placeholder="First Name" name="First Name" ref={register({required: true, max: 60, min: 3, maxLength: 60})} />
+      <input className="input" type="text" placeholder="Last Name" name="Last Name" ref={register({required: true, max: 60, min: 3, maxLength: 60})} />
+      <input className="input" type="email" placeholder="Email" name="Email" ref={register({required: true})} />
+      <input className="input" type="text" placeholder="Password" name="Password" ref={register({required: true})} />
 
-                <div className="input-field">
-                    <label htmlFor="password">
-                        Password<br/>
-                        </label>
-                        <input className="input" name="password" type="password" id="password" value = {newPassword} onChange={updatePassword} />
-                </div>
-
-                <div>
-                    <label htmlFor="role"> 
-                    Role (Enter 1 for Operator or 2 for Diner):<br/> 
-                    </label>
-                    <input className="input" name = 'role' type = 'text' id ='role' value = {newRole} onChange={updateRole}/>
-                </div>
-
-                <div className="input-field">
-                    <button className="input-btn" type = 'submit'>Sign Up</button>
-                </div>
-            </form>
-        </div>
-    )
+      <input className="input" type="submit" />
+    </form>
+  );
 }
 
 
-export default Signup
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

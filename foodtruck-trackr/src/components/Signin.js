@@ -30,6 +30,7 @@ function Signin()  {
 
     return (
         <div className="signin-container">
+            <h1>Food Truck</h1>
             <form onSubmit={handleSubmit} className="form-container">
                 <h2 className="title">Sign In</h2>
                 <div className="input-field">

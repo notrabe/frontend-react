@@ -11,13 +11,14 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <div className="nav-links">
+      <ul>
+         <img className="logo" src="https://cdn.pixabay.com/photo/2017/09/23/21/21/label-2780146__340.png" alt="" />
         <NavLink to='/operatordashboard'>Operator Dashboard</NavLink>
-        <NavLink to='/dinerdashboard'>Diner Dashboard</NavLink>
-        <div className="nav-links">
-            <img className="logo" src="https://cdn.pixabay.com/photo/2017/09/23/21/21/label-2780146__340.png" alt="" />
-            <h1>Food Truck</h1>
+        <NavLink to='/dinerdashboard'>Diner Dashboard</NavLink>           
             <Link to ='/signin'><li>Sign In</li></Link>
             <Link to='/signup'><li>Sign Up</li></Link>
+            </ul>
         </div>
         
         <Switch>

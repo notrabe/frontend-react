@@ -38,6 +38,7 @@ function Signup() {
     return (
 
         <div className="signup-container">
+            <h1>Food Truck</h1>
             <form onSubmit={handleSubmit} className="form-container">
                 <h2 className="title">Sign Up</h2>
                 <div className="input-field">

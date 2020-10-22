@@ -49,7 +49,7 @@ const Truck = ({name, cuisine, location, id}) => {
 
     return(
         <div>
-            <h3>{name}: {rating} </h3>
+            <h3>{name} {rating} </h3>
             <p>{cuisine}</p>
             <p>{location}</p>
             

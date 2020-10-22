@@ -31,7 +31,7 @@ const TruckList = () => {
 
 
     return (
-        <div>
+        <div className="truckList-container">
             {trucks.map(truck => (
                 <Truck  name = {truck.name} cuisine = {truck.cuisine} location={truck.city} id = {truck.id}/>    
             ))}

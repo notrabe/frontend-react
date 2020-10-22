@@ -6,7 +6,7 @@ import Truck from './components/Truck'
 import Signin from './components/Signin'
 import Signup from './components/Signup'
 import PrivateRoute from './components/PrivateRoute'
-
+import './App.css'
 
 function App() {
   return (

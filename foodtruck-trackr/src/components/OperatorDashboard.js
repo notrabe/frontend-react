@@ -33,9 +33,11 @@ function OperatorDashboard (){
 
     return (
         <TruckProvider>    
-            <div>
-                <button onClick={handleLogOut}>Log Out</button>
-                <h1>Trucks:</h1>
+            <div className="op-dashboard-container">
+                <div className="op-dashboard-header">
+                    <h1>Trucks:</h1>
+                    <button onClick={handleLogOut}>Log Out</button>
+                </div>
                 <AddTruck/>
                 <TruckList/>
             </div>

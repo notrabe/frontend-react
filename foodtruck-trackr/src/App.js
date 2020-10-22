@@ -13,14 +13,14 @@ function App() {
   return (
     <div className="App">
       <div className="nav-links">
-      <ul>
-         <img className="logo" src="https://cdn.pixabay.com/photo/2017/09/23/21/21/label-2780146__340.png" alt="" />
-        <NavLink to='/operatordashboard'>Operator Dashboard</NavLink>
-        <NavLink to='/dinerdashboard'>Diner Dashboard</NavLink>           
-            <Link to ='/signin'><li>Sign In</li></Link>
-            <Link to='/signup'><li>Sign Up</li></Link>
-            </ul>
-        </div>
+        <ul>
+          <img className="logo" src="https://cdn.pixabay.com/photo/2017/09/23/21/21/label-2780146__340.png" alt="" />
+          <NavLink to='/operatordashboard'>Operator Dashboard</NavLink>
+          <NavLink to='/dinerdashboard'>Diner Dashboard</NavLink>           
+          <Link to ='/signin'><li>Sign In</li></Link>
+          <Link to='/signup'><li>Sign Up</li></Link>
+        </ul>
+      </div>
         
         <Switch>
 

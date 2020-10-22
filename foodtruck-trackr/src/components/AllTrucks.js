@@ -22,10 +22,14 @@ export default function AllTrucks ({name, location, cuisine, id}) {
             .then(res => {
                 console.log(res.data.reviews)
                 localStorage.getItem('token')
+                setReview('')
+                setRating('')
             })
             .catch(err => {
                 console.log(err)
             })
+
+            alert('Your review has been submitted successfully!')
     }
     
     const updateReview = (e) => {

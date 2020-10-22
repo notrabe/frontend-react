@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 const initialFormValues = {
     username: "",
@@ -9,6 +10,7 @@ const initialFormValues = {
 
 function SignUp()  {
     const [formData, setFormData] = useState(initialFormValues);
+    const history = useHistory()
 
     const onChange = (evt) => {
         // console.log(evt.target)
@@ -22,17 +24,43 @@ function SignUp()  {
   
   
     const handleSubmit = (evt) => {
-        const postData = formData;
+        const postData = {
+          username: formData.username,
+          password: formData.password,
+          role: formData.role
+        };
         evt.preventDefault();
         axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/register', postData)
         .then(res => {
           console.log(postData);
           console.log(res)
           setFormData(initialFormValues);
+          localStorage.setItem('token', res.data.token)
+          const tokenHeader = {
+            headers:{
+              'Authorization': res.data.token
+          }}
+          axios.get('https://bw-foodtruck-tracker.herokuapp.com/api/users', tokenHeader)
+          .then(res => {
+              console.log(res.data);
+              const user = res.data.filter(item => {
+                  return item.username === formData.username
+              })
+              console.log(res.data[0].role)
+              if (res.data.role === 1) {
+                  history.push('/operatordashboard')
+              } else {
+                  history.push('/dinerdashboard')
+              }
+          })
+          .catch(err => {
+              console.log(err);
+          })
         })
         .catch(err => {
           console.log(err, "oops teehee")
         })
+
     }
   
 
@@ -55,7 +83,7 @@ function SignUp()  {
               value={formData.password}
               onChange={onChange}
               name="password"
-              type="text"
+              type="password"
               className="input"
           />
       </label>

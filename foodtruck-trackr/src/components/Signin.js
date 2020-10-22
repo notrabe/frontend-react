@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import './Signin.css';
+import {useHistory} from 'react-router-dom';
 
 
 
 function Signin()  {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [userRole, setUserRole] = useState(0)
+    const [userRole, setUserRole] = useState('')
+    const history = useHistory()
   
 
     const updateName = (e) => {
@@ -44,7 +46,13 @@ function Signin()  {
                         const user = res.data.filter(item => {
                             return item.username === username
                         })
-                        setUserRole(user[0].role);
+                        setUserRole(res.data.role);
+                        console.log(res.data[0].role)
+                        if (res.data.role === 1) {
+                            history.push('/operatordashboard')
+                        } else {
+                            history.push('/dinerdashboard')
+                        }
                     })
                     .catch(err => {
                         console.log(err);
@@ -63,7 +71,7 @@ function Signin()  {
         <div className="signin-container">
             <h1>Food Truck</h1>
             <form onSubmit={handleSubmit} className="form-container">
-                <h2 className="title">Log</h2>
+                <h2 className="title">Log In</h2>
                 <div className="input-field">
                     <label htmlFor="password">
                         Username<br/>

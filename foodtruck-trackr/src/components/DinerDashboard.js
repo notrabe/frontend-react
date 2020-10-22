@@ -8,10 +8,16 @@ import DDTruckList from './DDTruckList'
 
 
 function DinerDashboard (){
+    const history = useHistory()
+
+    const handleLogout = (e) => {
+        e.preventDefault()
+        history.push('/')
+    }
 
     return (
         <div>
-            <NavLink to='/home'>Home</NavLink>
+            <button onClick={handleLogout}>Log Out</button>
             <h3>Available trucks: </h3>
             <DDTruckList/>
         </div>

@@ -121,6 +121,7 @@ h1 {
     margin: 0 auto;
     padding: 3%;
     border: 2px solid yellow;
+    background-color: #001225DD;
 }
 
 .op-dashboard-header {
@@ -137,13 +138,30 @@ h1 {
     font-size: 1rem;
 }
 
+.truck-form-container {
+    width: 32rem;
+    margin: 0 auto;
+}
+
 .truck-form {
     margin: 1.5% auto;
-    width: 30rem;
+    padding: .5rem;
+    width: 19rem;
     display: flex; 
     flex-flow: column nowrap;
     align-items: center;
     border: 1px solid yellow;
+}
+
+.truck-form label{
+    display: flex; 
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.truck-form label input[type='text'] {
+    appearance: none;
+    width: 12rem;
 }
 
 .truck-form button {

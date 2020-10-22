@@ -57,19 +57,21 @@ function AddTruck (props) {
     }
 
     return(
-        <div className>
+        <div className="truck-form-container">
             <form onSubmit = {postNewTruck} className="truck-form">
-                <label> Truck Name:
-                    <input type = 'text' name = 'truck-name' value = {name} onChange = {updateName}/>
-                </label>
+                <div className="tForm-input-container">
+                    <label> Truck Name:
+                        <input type = 'text' name = 'truck-name' value = {name} onChange = {updateName}/>
+                    </label>
 
-                <label> Cuisine Type:
-                        <input type = 'text' name ='cuisine' value = {cuisine} onChange={updateCuisine}/>
-                </label>
+                    <label> Cuisine Type:
+                            <input type = 'text' name ='cuisine' value = {cuisine} onChange={updateCuisine}/>
+                    </label>
 
-                <label>Location:&nbsp;
-                    <input type = 'text' name= 'location' value = {city} onChange={updateCity}/>    
-                </label>
+                    <label>Location:&nbsp;
+                        <input type = 'text' name= 'location' value = {city} onChange={updateCity}/>    
+                    </label>
+                </div>
 
                 <button >Add your Truck!</button>
 

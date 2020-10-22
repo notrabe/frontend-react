@@ -40,6 +40,7 @@ function SignUp()  {
             headers:{
               'Authorization': res.data.token
           }}
+
           axios.get('https://bw-foodtruck-tracker.herokuapp.com/api/users', tokenHeader)
           .then(res => {
               console.log(res.data);
@@ -55,6 +56,7 @@ function SignUp()  {
           .catch(err => {
               console.log(err);
           })
+
         })
         .catch(err => {
           console.log(err, "oops teehee")

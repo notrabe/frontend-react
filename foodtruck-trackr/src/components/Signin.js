@@ -3,9 +3,12 @@ import axios from 'axios';
 import './Signin.css';
 
 
+
 function Signin()  {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [userRole, setUserRole] = useState(0)
+  
 
     const updateName = (e) => {
         e.preventDefault()
@@ -25,25 +28,42 @@ function Signin()  {
             password: password,
         }
         e.preventDefault();
-        console.log(postData)
         axios.post('https://bw-foodtruck-tracker.herokuapp.com/api/auth/login', postData)
-        .then(res => {
-                console.log(res)
+            .then(res => {
+                console.log(res.data)
                 localStorage.setItem('token', res.data.token)
+                const tokenHeader = {
+                    headers:{
+                        'Authorization': res.data.token
+                    }
+                    
+                }
+                axios.get('https://bw-foodtruck-tracker.herokuapp.com/api/users', tokenHeader)
+                    .then(res => {
+                        console.log(res.data);
+                        const user = res.data.filter(item => {
+                            return item.username === username
+                        })
+                        setUserRole(user[0].role);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+                
             })
 
             .catch(err => {
                 console.log(err, "oops teehee")
                 alert('invalid username or password')
             })
-    }
+    }       
 
 
     return (
         <div className="signin-container">
             <h1>Food Truck</h1>
             <form onSubmit={handleSubmit} className="form-container">
-                <h2 className="title">Sign In</h2>
+                <h2 className="title">Log</h2>
                 <div className="input-field">
                     <label htmlFor="password">
                         Username<br/>

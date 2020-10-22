@@ -40,23 +40,21 @@ function SignUp()  {
             headers:{
               'Authorization': res.data.token
           }}
-
-          axios.get('https://bw-foodtruck-tracker.herokuapp.com/api/users', tokenHeader)
-          .then(res => {
-              console.log(res.data);
-              const user = res.data.filter(item => {
-                  return item.username === formData.username
-              })
-              if (user[0].role === 1) {
-                  history.push('/operatordashboard')
-              } else {
-                  history.push('/dinerdashboard')
-              }
-          })
-          .catch(err => {
-              console.log(err);
-          })
-
+            axios.get('https://bw-foodtruck-tracker.herokuapp.com/api/users', tokenHeader)
+            .then(res => {
+                console.log(res.data);
+                const user = res.data.filter(item => {
+                    return item.username === formData.username
+                })
+                if (user[0].role === 1) {
+                    history.push('/operatordashboard')
+                } else {
+                    history.push('/dinerdashboard')
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
         })
         .catch(err => {
           console.log(err, "oops teehee")

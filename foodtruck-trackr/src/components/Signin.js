@@ -46,10 +46,7 @@ function Signin()  {
                         const user = res.data.filter(item => {
                             return item.username === username
                         })
-                        console.log(user);
-                        setUserRole(res.data.role);
-                        console.log(res.data[0].role)
-                        if (res.data.role === 1) {
+                        if (user[0].role === 1) {
                             history.push('/operatordashboard')
                         } else {
                             history.push('/dinerdashboard')

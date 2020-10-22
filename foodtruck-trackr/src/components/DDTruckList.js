@@ -27,4 +27,5 @@ function DDTruckList(){
     )
 }
 
+
 export default DDTruckList

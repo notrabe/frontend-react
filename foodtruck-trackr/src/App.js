@@ -5,9 +5,8 @@ import DinerDashboard from './components/DinerDashboard'
 import Truck from './components/Truck'
 import Signin from './components/Signin'
 import Signup from './components/Signup'
-import './App.css';
 import PrivateRoute from './components/PrivateRoute'
-
+import './App.css'
 
 function App() {
   return (

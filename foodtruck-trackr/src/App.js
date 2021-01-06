@@ -8,6 +8,8 @@ import Signup from './components/Signup'
 import PrivateRoute from './components/PrivateRoute'
 import './App.css'
 
+console.log('hello world')
+
 function App() {
   return (
     <div className="App">
